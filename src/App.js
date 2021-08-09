@@ -13,9 +13,8 @@ const App = () => {
     ];
 
     const addExpenseHandler = (expanseData) =>{
-        const Data ={
-            ...expanseData
-        }
+        console.log('app.js');
+        console.log(expanseData);
     }
     // const response =  expanses.map((expanse) => {
 
@@ -25,7 +24,7 @@ const App = () => {
         <div>
             {/* <Demo /> */}
             <h2>Let's get started</h2>
-            <NewExpense />
+            <NewExpense onAddExpenseData={addExpenseHandler}/>
             <Expanses  expanses={expanses}/>
             {/* {response} */}
             {/* <ExpenseItem title={expanses[0].title} amount={expanses[0].amount} date={expanses[0].date} />

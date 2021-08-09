@@ -1,13 +1,13 @@
-// import React from 'react'
+import React from 'react'
 
-// function demo1(props) {
-//     return (
-//         <div>
-//             {props.name}
-//             <br/>
-//             {props.children}
-//         </div>
-//     )
-// }
+function demo1(props) {
+    return (
+        <div>
+            {props.name}
+            <br/>
+            {props.children}
+        </div>
+    )
+}
 
-// export default demo1
+export default demo1
