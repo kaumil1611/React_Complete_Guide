@@ -1,5 +1,7 @@
 import React from 'react';
 import Expanses from './components/Expenses/Expanses';
+import NewExpense from './components/NewExpense/newExpense';
+
 // import Demo from './components/childprops/demo';
 // import ExpenseItem from './components/ExpenseItem';
 
@@ -9,6 +11,12 @@ const App = () => {
         {title:'car dilivery',amount: 94.47 ,date: new Date(2021,5,12)},
         {title:'car washing',amount: 10.47 ,date: new Date(2021,10,10)},
     ];
+
+    const addExpenseHandler = (expanseData) =>{
+        const Data ={
+            ...expanseData
+        }
+    }
     // const response =  expanses.map((expanse) => {
 
     //     return <ExpenseItem key={expanse.title} title={expanse.title} amount={expanse.amount} date={expanse.date} />
@@ -17,6 +25,7 @@ const App = () => {
         <div>
             {/* <Demo /> */}
             <h2>Let's get started</h2>
+            <NewExpense />
             <Expanses  expanses={expanses}/>
             {/* {response} */}
             {/* <ExpenseItem title={expanses[0].title} amount={expanses[0].amount} date={expanses[0].date} />
