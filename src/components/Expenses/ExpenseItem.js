@@ -1,25 +1,28 @@
-import React,{useState} from 'react';
+import React from 'react';
 import Card from '../UI/Card';
 import ExpanseDate from './ExpanseDate';
 import './style.css';
 
 const ExpenseItem = (props) =>{
-
-   const [title,setTitle] = useState(props.title);
+    // justfor demo
+   /* const [title,setTitle] = useState(props.title);
     const onChangeTitleHandler = (e) =>{
             setTitle('hello');
-    };
+    }; */
+    // just for demo end
     return (
         <Card className="expense-item">
             {/* <div>{props.date.toDateString()}</div> */}
-           <ExpanseDate date={props.date}/>
+           <ExpanseDate date={props.date} />
             <div className="expense-item__description">
                 <h2>
-                    {title}
+                    {props.title}
                 </h2>
                 <div className="expense-item__price">${props.amount} </div>
             </div>
-            <button onClick={onChangeTitleHandler}>Change Title!</button> 
+            {/* just for demo */}
+            {/* <button onClick={onChangeTitleHandler}>Change Title!</button>  */}
+            {/* just for demo end */}
         </Card>
     );
 }

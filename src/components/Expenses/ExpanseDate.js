@@ -14,4 +14,4 @@ const ExpanseDate = (props) => {
     );
 }
 
-export default ExpanseDate
+export default ExpanseDate;

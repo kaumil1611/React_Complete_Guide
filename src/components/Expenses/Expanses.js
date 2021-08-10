@@ -18,7 +18,8 @@ const Expanses = (props) => {
           selected={filterYear}
           onSelectDropDown={onSelectDropDownData}
         />
-        <ExpenseItem
+        {props.expanses.map((expanse)=> <ExpenseItem key={expanse.id} title={expanse.title} amount={expanse.amount} date={expanse.date} />)}
+        {/* <ExpenseItem
           title={props.expanses[0].title}
           amount={props.expanses[0].amount}
           date={props.expanses[0].date}
@@ -27,7 +28,7 @@ const Expanses = (props) => {
           title={props.expanses[1].title}
           amount={props.expanses[1].amount}
           date={props.expanses[1].date}
-        />
+        /> */}
       </Card>
     </div>
   );
