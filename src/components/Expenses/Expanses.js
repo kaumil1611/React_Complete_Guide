@@ -5,12 +5,21 @@ import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 
 const Expanses = (props) => {
-  const [filterYear, setFilterYear] = useState("2019");
+  const [filterYear, setFilterYear] = useState("All");
   const onSelectDropDownData = (SelectedYear) => {
     setFilterYear(SelectedYear);
     console.log(SelectedYear);
     console.log("Expanses js file");
   };
+  console.log(`heloo ${filterYear}`);
+  let Filter_Year= '';
+  (filterYear === 'All'?  Filter_Year = props.expanses : Filter_Year = props.expanses.filter(year => year.date.getFullYear().toString() === filterYear))  
+  // if(filterYear === 'All'){
+  //    const Filter_Year = props.expanses;
+  // }
+  // else{
+  //    const Filter_Year = props.expanses.filter(year => year.date.getFullYear().toString() === filterYear);
+  // }
   return (
     <div>
       <Card className="expenses">
@@ -18,7 +27,9 @@ const Expanses = (props) => {
           selected={filterYear}
           onSelectDropDown={onSelectDropDownData}
         />
-        {props.expanses.map((expanse)=> <ExpenseItem key={expanse.id} title={expanse.title} amount={expanse.amount} date={expanse.date} />)}
+        {/* {props.expanses.map((expanse)=> <ExpenseItem key={expanse.id} title={expanse.title} amount={expanse.amount} date={expanse.date} />)} */}
+        
+        {Filter_Year.map((expanse)=> <ExpenseItem key={expanse.id} title={expanse.title} amount={expanse.amount} date={expanse.date} />)}
         {/* <ExpenseItem
           title={props.expanses[0].title}
           amount={props.expanses[0].amount}
