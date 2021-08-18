@@ -77,14 +77,18 @@ const ExpenseForm = (props) => {
       date: new Date(enterDate),
     };
     console.log(expenseData);
+    if (isNaN(expenseData)) {
+      return alert("plese enter value");
+    }
+
     props.onSaveExpanseFormData(expenseData);
-    setEnterTitle('');
-    setEnterAmount('');
-    setEnterDate('');
+    setEnterTitle("");
+    setEnterAmount("");
+    setEnterDate("");
   };
-  const clickHandler = () =>{
+  const clickHandler = () => {
     props.isEditing(false);
-  }
+  };
   return (
     <form onSubmit={formSubmitChangeHandler}>
       <div className="new-expense__controls">
@@ -114,7 +118,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-       <button type="button" onClick={clickHandler}>Cancel</button>
+        <button type="button" onClick={clickHandler}>
+          Cancel
+        </button>
         <button type="text">Add Expanse</button>
       </div>
     </form>
