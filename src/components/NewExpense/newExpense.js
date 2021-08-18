@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import ExpenseForm from "./ExpenseForm";
 import "./newExpense.css";
 
-const newExpense = (props) => {
+const NewExpense = (props) => {
+  const [isEditing ,setIsEditing] = useState(false);
   const saveExpanseFormDataHandler = (enterExpanseFormData) =>{
       const expanseData ={
         ...enterExpanseFormData,
@@ -10,12 +11,20 @@ const newExpense = (props) => {
       };
       // console.log(expanseData);
       props.onAddExpenseData(expanseData);
-  }
+  };
+
+  const startEditingHandler =()=>{
+      setIsEditing(true);
+    }
+    const Editing = (e) =>{
+      setIsEditing(e);
+    }
   return (
     <div className="new-expense">
-     <ExpenseForm onSaveExpanseFormData={saveExpanseFormDataHandler}/>
+      {!isEditing && <button onClick={startEditingHandler}>Add New Expense</button>}
+     {isEditing && <ExpenseForm onSaveExpanseFormData={saveExpanseFormDataHandler} isEditing={Editing}/>}
     </div>
   );
 };
 
-export default newExpense;
+export default NewExpense;

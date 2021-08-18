@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./expenseform.css";
 
 const ExpenseForm = (props) => {
+
+  const [showForm,setShowForm] =useState(false);
   // one way
   const [enterTitle, setEnterTitle] = useState("");
   const [enterAmount, setEnterAmount] = useState("");
@@ -73,7 +75,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enterTitle,
-      amount: +enterAmount,
+      amount: enterAmount,
       date: new Date(enterDate),
     };
     console.log(expenseData);
@@ -81,12 +83,12 @@ const ExpenseForm = (props) => {
     setEnterTitle('');
     setEnterAmount('');
     setEnterDate('');
+    setShowForm(false);
   };
-  const clickHandler = () =>{
-    props.isEditing(false);
-  }
-  return (
-    <form onSubmit={formSubmitChangeHandler}>
+  const showFormData =() =>{
+      return(
+        <div>
+          <form onSubmit={formSubmitChangeHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control ">
           <label>Title</label>
@@ -113,11 +115,25 @@ const ExpenseForm = (props) => {
           />
         </div>
       </div>
-      <div className="new-expense__actions">
-       <button type="button" onClick={clickHandler}>Cancel</button>
-        <button type="text">Add Expanse</button>
+      <div>
+        <div className="new-expense__actions">
+          <button type="text">Add Expanse</button>
+        </div>
+        <div className="new-expense__actions">
+          <button type="text" onClick={()=> setShowForm(false)}>Cancel</button>
+        </div>
       </div>
     </form>
+        </div>
+      );
+  }
+  return (
+   
+      <div className="new-expense__actions">
+        {!showForm ?<button type="text" onClick={()=> setShowForm(true)}>Add Expanse</button> : null}
+        {showForm? showFormData() :null }
+      </div>
+    
   );
 };
 

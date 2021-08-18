@@ -11,19 +11,21 @@ const ExpenseItem = (props) =>{
     }; */
     // just for demo end
     return (
-        <Card className="expense-item">
-            {/* <div>{props.date.toDateString()}</div> */}
-           <ExpanseDate date={props.date} />
-            <div className="expense-item__description">
-                <h2>
-                    {props.title}
-                </h2>
-                <div className="expense-item__price">${props.amount} </div>
-            </div>
-            {/* just for demo */}
-            {/* <button onClick={onChangeTitleHandler}>Change Title!</button>  */}
-            {/* just for demo end */}
-        </Card>
+        <li>
+            <Card className="expense-item">
+                {/* <div>{props.date.toDateString()}</div> */}
+            <ExpanseDate date={props.date} />
+                <div className="expense-item__description">
+                    <h2>
+                        {props.title}
+                    </h2>
+                    <div className="expense-item__price">${props.amount} </div>
+                </div>
+                {/* just for demo */}
+                {/* <button onClick={onChangeTitleHandler}>Change Title!</button>  */}
+                {/* just for demo end */}
+            </Card>
+        </li>
     );
 }
 

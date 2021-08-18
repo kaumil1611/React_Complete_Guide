@@ -21,6 +21,7 @@ const App = () => {
         return [expanseData,...prevExpanses];
     });
   };
+  
   // const response =  expanses.map((expanse) => {
 
   //     return <ExpenseItem key={expanse.title} title={expanse.title} amount={expanse.amount} date={expanse.date} />
