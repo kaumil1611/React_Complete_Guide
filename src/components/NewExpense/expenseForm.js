@@ -71,20 +71,23 @@ const ExpenseForm = (props) => {
   const formSubmitChangeHandler = (e) => {
     e.preventDefault();
 
-    const expenseData = {
-      title: enterTitle,
-      amount: +enterAmount,
-      date: new Date(enterDate),
-    };
-    console.log(expenseData);
-    if (isNaN(expenseData)) {
-      return alert("plese enter value");
-    }
+    if (
+      enterTitle.length > 0 &&
+      enterAmount.length > 0 &&
+      enterDate.length > 0
+    ) {
+      const expenseData = {
+        title: enterTitle,
+        amount: +enterAmount,
+        date: new Date(enterDate),
+      };
 
-    props.onSaveExpanseFormData(expenseData);
-    setEnterTitle("");
-    setEnterAmount("");
-    setEnterDate("");
+      props.onSaveExpanseFormData(expenseData);
+
+      setEnterTitle("");
+      setEnterAmount("");
+      setEnterDate("");
+    }
   };
   const clickHandler = () => {
     props.isEditing(false);
